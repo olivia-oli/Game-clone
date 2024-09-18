@@ -1,12 +1,19 @@
-import React from 'react'
-import { ThemeContextProvider } from './ThemeContext'
+import React from "react";
+import { ThemeContextProvider } from "./ThemeContext";
+import { GameContextProvider } from "./GameContext";
+import { SfxContextProvider} from "./SfxContext";
 
-function Provider({childern}) {
+
+function Provider({ children }) {
   return (
     <ThemeContextProvider>
-      {childern}
+      <GameContextProvider>
+        <SfxContextProvider>
+          {children}
+        </SfxContextProvider>
+      </GameContextProvider>
     </ThemeContextProvider>
-  )
+  );
 }
 
-export default Provider
+export default Provider;
